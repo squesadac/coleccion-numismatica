@@ -43,7 +43,10 @@ function marcarMenu(ruta) {
 function pintarEstadoSesion() {
   const franja = document.getElementById('franja-demo');
   const enSesion = store.sesionActiva();
-  franja.hidden = !(enSesion && store.MODO === 'demo');
+  franja.hidden = store.MODO !== 'demo';
+  franja.textContent = enSesion
+    ? 'Modo de prueba: los cambios se guardan solo en este navegador.'
+    : 'Versión de muestra: estas piezas son ejemplos, no la colección real.';
   document.getElementById('enlace-admin').textContent = enSesion ? 'Administrar' : 'Entrar';
 }
 

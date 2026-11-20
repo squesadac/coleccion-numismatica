@@ -2,7 +2,9 @@
 // se usa el modo demo (navegador) o la base de datos real (Supabase).
 import { CONFIG } from '../config.js';
 
-export const MODO = CONFIG.modo === 'supabase' ? 'supabase' : 'demo';
+// Agregando "?demo" a la dirección se ve la versión de muestra, sin tocar los datos reales.
+const pideDemo = new URLSearchParams(location.search).has('demo');
+export const MODO = CONFIG.modo === 'supabase' && !pideDemo ? 'supabase' : 'demo';
 
 let impl;
 try {
