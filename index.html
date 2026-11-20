@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Colección Numismática</title>
+  <meta name="description" content="Una colección de monedas y billetes de todo el mundo.">
+  <meta property="og:title" content="Colección Numismática">
+  <meta property="og:description" content="Monedas y billetes de todo el mundo.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#1f3b2f">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23c99a2e'/%3E%3Ccircle cx='32' cy='32' r='24' fill='none' stroke='%237a5a12' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="saltar" href="#principal">Saltar al contenido</a>
+
+  <div id="franja-demo" class="franja-demo" hidden>
+    Modo de prueba: los cambios se guardan solo en este navegador.
+  </div>
+
+  <header class="encabezado">
+    <div class="contenedor encabezado-fila">
+      <a class="marca" href="#/">
+        <span class="marca-moneda" aria-hidden="true"></span>
+        <span id="titulo-sitio">Colección Numismática</span>
+      </a>
+      <nav class="menu" aria-label="Principal">
+        <a href="#/" data-menu="inicio">Inicio</a>
+        <a href="#/catalogo" data-menu="catalogo">Catálogo</a>
+        <a href="#/albumes" data-menu="albumes">Álbumes</a>
+        <a href="#/mapa" data-menu="mapa">Mapa</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="principal" tabindex="-1"></main>
+
+  <footer class="pie">
+    <div class="contenedor pie-fila">
+      <span>© <span id="anio-pie"></span> · Colección familiar</span>
+      <a id="enlace-admin" href="#/admin" data-menu="admin">Entrar</a>
+    </div>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
