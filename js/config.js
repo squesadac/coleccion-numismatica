@@ -7,11 +7,13 @@ export const CONFIG = {
 
   // 'demo'     -> datos de ejemplo guardados solo en este navegador.
   // 'supabase' -> base de datos real (se configura más adelante).
-  modo: 'demo',
+  modo: 'supabase',
 
+  // Estos dos valores son públicos por diseño: la seguridad la dan los
+  // permisos definidos en supabase/schema.sql.
   supabase: {
-    url: '',
-    anonKey: '',
+    url: 'https://fatfzzkugiidpqcgiwnk.supabase.co',
+    anonKey: 'sb_publishable_NctDFfSGpNJ6CdkK1WBjvQ_pjqVEJGG',
   },
 };
 

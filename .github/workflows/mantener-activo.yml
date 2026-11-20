@@ -1,0 +1,20 @@
+# Supabase pausa los proyectos gratuitos tras 7 días sin actividad.
+# Esta tarea hace una consulta pequeña cada 3 días para mantenerlo activo.
+name: Mantener Supabase activo
+
+on:
+  schedule:
+    - cron: '17 13 */3 * *'
+  workflow_dispatch:
+
+jobs:
+  consultar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Consulta pequeña a la base de datos
+        run: |
+          estado=$(curl -s -o /dev/null -w "%{http_code}" \
+            "https://fatfzzkugiidpqcgiwnk.supabase.co/rest/v1/albumes?select=id&limit=1" \
+            -H "apikey: sb_publishable_NctDFfSGpNJ6CdkK1WBjvQ_pjqVEJGG")
+          echo "Respuesta: $estado"
+          test "$estado" = "200"

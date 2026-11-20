@@ -47,7 +47,7 @@ function redimensionar(img, ladoMaximo, calidad) {
  * @param {{grande?: number, mini?: number, calidad?: number}} opciones
  */
 export async function comprimirFoto(archivo, opciones = {}) {
-  const { grande = 1600, mini = 400, calidad = 0.82 } = opciones;
+  const { grande = 1400, mini = 400, calidad = 0.8 } = opciones;
   const img = await cargarImagen(archivo);
   const [g, m] = await Promise.all([redimensionar(img, grande, calidad), redimensionar(img, mini, 0.75)]);
   return { grande: g, mini: m };

@@ -14,9 +14,12 @@ python -m http.server 8765
 
 and open http://localhost:8765/. Opening `index.html` directly from the file system won't work, because ES modules need a web server.
 
-## Current state: demo mode
+## Data modes
 
-`js/config.js` has `modo: 'demo'`:
+`js/config.js` → `modo`:
+
+- `'supabase'` (current): real data in Supabase. Run `supabase/schema.sql` once in the Supabase SQL editor (put your admin email at the bottom), and create the admin user under Authentication → Users. Photos go to the public `fotos` storage bucket. `.github/workflows/mantener-activo.yml` pings the database every 3 days so the free project isn't paused.
+- `'demo'`: sample data stored only in the browser, handy for trying things out:
 
 - The site shows about 160 generated sample items, with drawn placeholder images.
 - **Entrar** (footer) logs in without a password. Edits, new items and photos are saved **only in that browser** (localStorage, roughly 25 photos at most).
