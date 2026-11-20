@@ -94,6 +94,16 @@ drop policy if exists "solo admin privado" on public.piezas_privado;
 create policy "solo admin privado" on public.piezas_privado for all
   using (public.es_admin()) with check (public.es_admin());
 
+-- ---------- Acceso de la API a las tablas ----------
+-- Los proyectos nuevos de Supabase no dan acceso automático a tablas nuevas.
+-- Las reglas de arriba (RLS) siguen decidiendo qué fila puede ver o cambiar cada quien.
+grant usage on schema public to anon, authenticated;
+grant select on public.albumes, public.piezas to anon, authenticated;
+grant insert, update, delete on public.albumes, public.piezas to authenticated;
+grant select, insert, update, delete on public.piezas_privado to authenticated;
+grant select on public.administradores to authenticated;
+grant execute on function public.es_admin() to anon, authenticated;
+
 -- ---------- Fotos (Supabase Storage) ----------
 insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
 values ('fotos', 'fotos', true, 5242880, array['image/webp', 'image/jpeg', 'image/png'])
